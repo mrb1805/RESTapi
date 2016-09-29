@@ -13,6 +13,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.PathSegment;
+import javax.ws.rs.core.Response;
 
 @Path("/learning")
 
@@ -112,6 +113,16 @@ public class LearningRestApi
 					System.out.println(emp.getSalary());
 				return "Response of Ex07";
 				}
-	
+				
+				@GET
+				@Path("/ex08")
+				public Response example08(){
+					//Respond API provides more control over how the response will be generated
+					return Response
+							.ok(404) //Http 200 OK status
+							.type("text/plain")//what are we producing in the response
+							.entity("Response from example 08") //response body
+							.build();
+					}
 }
 
