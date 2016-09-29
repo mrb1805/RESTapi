@@ -12,7 +12,7 @@ import com.jpmc.system.RailwayReservationSystem;
 public class PNRResource{
 	
 	@GET
-	@Produces("application/xml")
+	@Produces("application/json")
 	public PNRDetails getPNRDetails(@QueryParam("pnrNo")long pnrNo){
 		RailwayReservationSystem rs=new RailwayReservationSystem();
 		PNRDetails pnrDetails=rs.getPNRDetails(pnrNo);
