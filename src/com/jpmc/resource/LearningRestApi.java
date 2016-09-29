@@ -14,8 +14,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.PathSegment;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
-
 @Path("/learning")
 
 public class LearningRestApi 
@@ -87,7 +85,6 @@ public class LearningRestApi
 				
 				//http://localhost:8080/Proj/rest/learning/ex06
 				//In Rest Client Body name=Mahesh&email=Majrul@gmail.com
-				
 				@Path("/ex06")
 				@POST
 				@Consumes("application/x-www-form-urlencoded")
@@ -99,7 +96,22 @@ public class LearningRestApi
 				System.out.println("name: "+ name+ "email: "+email);
 				
 				return "Response of Ex06";
-			
+				}
+				
+
+				//http://localhost:8080/Proj/rest/learning/ex07
+				//In this example we will send XML/JSON data from the client to the server using POST method
+				//{"id":123,"name":"Mahesh","salary":1230.0}
+				@Path("/ex07")
+				@POST
+				@Consumes({"application/json","application/xml"})
+				@Produces("text/plain")
+				public String example07(Employee emp){
+					System.out.println(emp.getId());
+					System.out.println(emp.getName());
+					System.out.println(emp.getSalary());
+				return "Response of Ex07";
 				}
 	
 }
+
