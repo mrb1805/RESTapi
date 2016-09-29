@@ -57,14 +57,22 @@ public class LearningRestApi
 					
 				}
 				
-				//http://localhost:8080/Proj/rest/learning/ex04/1001/Akshay/1000
+				//http://localhost:8080/Proj/rest/learning/ex05/1001/.../10390/action/Akshay
+
+				//http://localhost:8080/Proj/rest/learning/ex05/1001;dinner=free/1234;dinner=pay/1003;privilage=homedrop/../10390/action/Akshay
+				
 				@Path("/ex05/{empnos: .+}/action/{action}")
 				@GET
 				@Produces("text/plain")
-				public String example05(@PathParam("empnos") int empnos,@PathParam("action") String action)
+				public String example05(@PathParam("empnos") String empnos,
+						@PathParam("action") String action,
+						@MatrixParam("dinner") String dinner,
+						@MatrixParam("privilage") String privilage)
 				{
 					System.out.println(empnos);
 					System.out.println(action);
+					System.out.println(dinner);
+					System.out.println(privilage);
 					//add your own println to confirm the working
 					return "Response from example 05";
 					
